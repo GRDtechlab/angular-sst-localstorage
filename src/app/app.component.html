@@ -297,6 +297,8 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
+  <pre #preTag>Edition on universal app and isPlatform {{isBrowser}}</pre>
+  <button (click)="preTag.innerText = 'clicked'">Click</button>
   <img
     width="40"
     alt="Angular Logo"
