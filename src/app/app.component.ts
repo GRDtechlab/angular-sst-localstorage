@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+import { LocalStorageManagementSsrService } from './local-storage-management-ssr.service';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,21 @@ import { PLATFORM_ID } from '@angular/core';
 export class AppComponent {
   title = 'angular9';
   isBrowser: boolean;
-  constructor(@Inject(PLATFORM_ID) private platFormId : Object){}
+  constructor(private localStorage: LocalStorageManagementSsrService){}
   ngOnInit() {
-   this.isBrowser =  isPlatformBrowser(this.platFormId);
-   if(this.isBrowser){
-    console.log(Document);
-    this.getLocation();
-   }else{
-     console.log('server side')
-   }
+  //  this.isBrowser =  isPlatformBrowser(this.platFormId);
+  //  if(this.isBrowser){
+  //   console.log(Document);
+  //   // localStorage.setItem('test', 'Test value1')
+  //   // this.getLocation();
+  //  }else{
+  //    console.log('server side')
+  //  }
+  
+  if(this.localStorage.isBrowser){
+    // this.getLocation();
+    this.localStorage.setItem('newItem', 'New Item 1')  
+  }
   }
   getLocation(): void{
     
