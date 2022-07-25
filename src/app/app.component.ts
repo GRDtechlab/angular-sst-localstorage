@@ -22,10 +22,10 @@ export class AppComponent {
   //    console.log('server side')
   //  }
   
-  if(this.localStorage.isBrowser){
+
     // this.getLocation();
     this.localStorage.setItem('newItem', 'New Item 1')  
-  }
+
   }
   getLocation(): void{
     
